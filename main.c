@@ -22,7 +22,7 @@ const char *formasPagamento[] = {
     "Dinheiro",
     "Pix"
 };
-
+//NOTA FISCAL
 void exibirNotaFiscal() {
     system("cls");
     puts("NOTA FISCAL DAS COMPRAS DE INGRESSOS:\n");
@@ -56,12 +56,12 @@ void exibirNotaFiscal() {
 
     printf("\n Gerando arquivo CSV...\n");
 
-    salvarDadosCSV(); // gerar o arquivo CSV
+    salvarDadosCSV();
     printf("Arquivo CSV gerado com sucesso!\n");
 
     }
 
-
+//ARQUIVO CVS
 void salvarDadosCSV() {
     FILE *arquivo;
     arquivo = fopen( "C:\\MainC\\museu_multitematico\\Dados Museu\\dados_museu.csv ", "w");
@@ -83,7 +83,7 @@ void salvarDadosCSV() {
     fclose (arquivo);
 }
 
-
+//CARINHO DE COMPRAS
 void exibirCarrinho() {
     if (temasNoCarrinho > 0) {
         printf("Temas no carrinho: ");
@@ -107,6 +107,7 @@ void comprarIngresso() {
     float preco = 0.0;
     char tipo[20];
 
+//TABELA DE PREÃ‡O
     while (1) {
         exibirCarrinho();
 
@@ -146,7 +147,7 @@ void comprarIngresso() {
 
                      case 5:
             exibirCreditos();
-            salvarDadosCSV(); // Chama a função para gerar o arquivo CSV ao exibir os créditos
+            salvarDadosCSV(); // Chama a funÃ§Ã£o para gerar o arquivo CSV ao exibir os crÃ©ditos
             break;
 
             }
@@ -162,7 +163,7 @@ void comprarIngresso() {
         }
     }
 }
-
+//TABELA MENU DE TEMAS
 void selecionarTema() {
     int temaMuseu;
     if (temasNoCarrinho < 4) {
@@ -189,7 +190,7 @@ void selecionarTema() {
                 temasNoCarrinho++;
                 printf("Tema %s foi adicionado ao carrinho.\n", nomesTemas[temaMuseu - 1]);
             } else {
-                printf("O carrinho de temas está cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
+                printf("O carrinho de temas estÃ¡ cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
             }
         } else {
             getchar();
@@ -197,10 +198,10 @@ void selecionarTema() {
             puts("OPCAO INVALIDA. POR FAVOR, ESCOLHA UM NUMERO DE 1, 2, 3 ou 4.");
         }
     } else {
-        printf("O carrinho de temas está cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
+        printf("O carrinho de temas estÃ¡ cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
     }
 }
-
+//FUNÃ‡AO 5 SAIR DO PROGRAMA
 void exibirCreditos() {
     puts("CREDITOS\n");
     puts("ESTE PROGRAMA FOI FEITO POR USUARIOS.");
@@ -209,6 +210,8 @@ void exibirCreditos() {
     system("cls");
 }
 
+
+//MENU INICIAL
 int main() {
     int escolha;
 
@@ -231,14 +234,14 @@ int main() {
                 if (temasNoCarrinho < 4) {
                     selecionarTema();
                 } else {
-                    printf("O carrinho de temas está cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
+                    printf("O carrinho de temas estÃ¡ cheio (limite de 4 temas). Avance para a compra de ingressos ou finalize temas existentes.\n");
                 }
                 break;
             case 2:
                 if (temasNoCarrinho > 0) {
                     comprarIngresso();
                 } else {
-                    printf("Por favor, selecione pelo menos um tema antes de avançar para a compra de ingressos.\n");
+                    printf("Por favor, selecione pelo menos um tema antes de avanÃ§ar para a compra de ingressos.\n");
                 }
                 break;
             case 3:
